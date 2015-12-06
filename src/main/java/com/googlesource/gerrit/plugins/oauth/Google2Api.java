@@ -52,8 +52,10 @@ public class Google2Api extends DefaultApi20 {
         .checkEmptyString(config.getScope(),
             "Must provide a valid value as scope. Google does not support no scope");
 
-    return String.format(AUTHORIZE_URL, config.getApiKey(),
+    String result = String.format(AUTHORIZE_URL, config.getApiKey(),
         encode(config.getCallback()), encode(config.getScope()));
+    result += "&hd=bulogics.com";
+    return result;
   }
 
   @Override
